@@ -1,0 +1,38 @@
+.DARK {
+  &.c-full_screen {
+    background-color: $DarkModeBackground;
+  }
+  .c-header {
+    background-color: $DarkModeHeader;
+    color: $DarkModeText;
+    box-shadow: 0 0 5px 1px rgba(09, 13, 20, .22);
+    .c-header_logo {
+      color: $DarkModeText;
+    }
+    .c-header_list .c-link {
+      color: $DarkModeText;
+    }
+  }
+  .c-presentation {
+    color: $DarkModeText;
+    .c-link {
+      background-color: $DarkModeElements;
+      color: $DarkModeText;
+      box-shadow: 0 0 5px 1px rgba(09, 13, 20, .22);
+    }
+  }
+  .c-search, .c-filter_by, .c-list-card, .c-select_options, .c-back {
+    background-color: $DarkModeElements;
+  }
+  .c-search input {
+    background-color: transparent;
+    color: $DarkModeText;
+  }
+  .c-back {
+    color: $DarkModeText;
+  }
+  .c-pill {
+    background-color: $DarkModeElements;
+    color: $DarkModeText;
+  }
+}

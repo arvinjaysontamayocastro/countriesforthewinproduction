@@ -1,0 +1,47 @@
+<div class="c-presentation">
+  <div class="c-container">
+    <div class="c-control_bar">
+      <div class="c-back_container">
+        <a href="/countries" class="c-back"><span class="fa fa-arrow-left"></span> Back</a>
+      </div>
+    </div>
+    <div class="c-country" *ngIf="country">
+      <div class="c-50">
+        <div class="c-flag c-flag--full">
+          <img src="{{country.flags.png}}">
+        </div>
+      </div>
+      <div class="c-50">
+        <div class="c-country_info">
+          <h1 class="c-country_name">{{country.name}}</h1>
+          <div class="c-50">
+            <p><strong>Native Name:</strong> {{country.nativeNameProcessed || ''}}</p>
+            <p><strong>Population:</strong> {{country.population  | number}}</p>
+            <p><strong>Region:</strong> {{country.region}}</p>
+            <p><strong>Sub Region:</strong> {{country.subRegion}}</p>
+            <p><strong>Capital:</strong> {{country.capital}}</p>
+          </div>
+          <div class="c-50">
+            <p><strong>Top Level Domain:</strong> {{country.topLevelDomain}}</p>
+            <p><strong>Currencies:</strong> {{country.currenciesProcessed}}</p>
+            <p><strong>Languages:</strong> {{country.languagesProcessed}}</p>
+          </div>
+          <div class="c-100">
+            <p>
+              <strong>Border Countries:</strong>
+            <span class="c-pill-container">
+              <a class="c-pill" href="/country/{{bordersProcessed}}" *ngFor="let bordersProcessed of country.bordersProcessed">{{bordersProcessed}}</a>
+              <span *ngIf="country.bordersProcessed.length === 0">&nbsp;-</span>
+            </span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="c-loading" *ngIf="!country">
+      <span class="fa fa-spinner fa-spin"></span>
+      Loading country details...
+    </div>
+  </div>
+</div>
