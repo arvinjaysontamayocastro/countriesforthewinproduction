@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CountryService } from '../_services/country.service';
 
 @Component({
   selector: 'app-base',
@@ -6,7 +7,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./base.component.scss'],
 })
 export class BaseComponent {
-  constructor(
+  constructor(public countryService: CountryService
   ) {}
 
   ngOnInit() {

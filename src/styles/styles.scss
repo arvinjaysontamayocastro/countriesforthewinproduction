@@ -164,23 +164,15 @@ body {
 
 .c-list {
   clear: both;
-  display: flex;
   margin-top: 48px;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: stretch;
-  float: left;
-  align-content: center;
-  justify-content: space-between;
-  gap: 48px;
-  row-gap: 48px;
-  margin: 24px 24px;
-  padding-top: 24px;
-  padding-bottom: 48px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 48px;
 
   .c-list-card {
-    flex: 1 1 250px;
     box-shadow: 0 3px 5px 1px rgba(09, 13, 20, 0.11);
+    margin-bottom: 48px;
     border-radius: 5px;
     text-decoration: none;
     color: inherit;
@@ -205,6 +197,10 @@ body {
       }
     }
   }
+}
+.c-list::after {
+  content: "";
+  flex-grow: 22;
 }
 p {
   strong {
@@ -278,6 +274,9 @@ p {
   }
 }
 @media only screen and (max-width: 900px) {
+  .c-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .c-country_info {
     margin: 0 24px 48px 24px;
     float: left;
@@ -295,10 +294,16 @@ p {
     margin-top: 24px;
     margin-bottom: 24px;
   }
+  .c-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media only screen and (max-width: 612px) {
   .c-list .c-list-card {
     max-width: unset;
     margin: 24px 48px;
+  }
+  .c-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
