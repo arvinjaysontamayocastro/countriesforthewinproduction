@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,7 +13,8 @@ import { CountryService } from 'src/app/_services/country.service';
 export class CountryViewComponent {
   country: Country;
   constructor(private activatedRoute: ActivatedRoute,
-    private countryService: CountryService
+    private countryService: CountryService,
+    private location: Location
   ) {}
 
   private countriesSub: Subscription;
@@ -31,5 +33,9 @@ export class CountryViewComponent {
     this.country = this.countryService.getCountry(id);
     console.log(this.country);
     
+  }
+
+  back() {
+    this.location.back()
   }
 }
