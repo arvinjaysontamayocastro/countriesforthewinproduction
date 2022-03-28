@@ -13,6 +13,7 @@ import { HelperService } from '../_services/helper.service';
 export class BaseComponent {
   public countries: Country[];
   private countriesSub: Subscription;
+  public hoveredCountry: string;
   constructor(public countryService: CountryService, private helperService: HelperService
   ) {}
 
@@ -23,5 +24,12 @@ export class BaseComponent {
       .subscribe((countryData: { countries: Country[]; regions: string[] }) => {
         this.countries = this.helperService.sortBy(countryData.countries, 'name');
       });
+  }
+
+  mouseEnter(country) {
+    this.hoveredCountry = country.name;
+  }
+  mouseLeave(country) {
+    this.hoveredCountry = "";
   }
 }
