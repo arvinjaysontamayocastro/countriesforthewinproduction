@@ -30,11 +30,8 @@ export class CountryService {
   }
   getCountry(id: string) {
     id = id.replace(/%20/g, " ");
-    console.log(id);
-    console.log(this.countries);
     if(this.countries && this.countries.length > 0) {
       var country = this.countries.filter(c=>c.name === id)[0];
-      console.log(country);
       if(country) {
         this.processNativeName(country);
         this.processCurrencies(country);
@@ -106,7 +103,6 @@ export class CountryService {
   processRegions() {
     var regions = this.countries.map(c => c.region);
     this.regions = this.helperService.sortUnique(regions);
-    console.log(this.regions);
   }
 
   private triggerLoadCountries() {

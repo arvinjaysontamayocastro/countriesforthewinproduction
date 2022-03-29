@@ -31,8 +31,6 @@ export class CountryViewComponent {
   getCountry() {
     var id = this.activatedRoute.snapshot.params.id;
     this.country = this.countryService.getCountry(id);
-    console.log(this.country);
-    
   }
 
   back() {
