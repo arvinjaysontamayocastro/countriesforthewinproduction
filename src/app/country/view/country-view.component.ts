@@ -17,7 +17,7 @@ export class CountryViewComponent {
     private location: Location
   ) {}
 
-  private countriesSub: Subscription;
+  public countriesSub: Subscription;
   
   ngOnInit() {
     this.getCountry();

@@ -1,0 +1,8 @@
+<div class="c-search">
+  <i class="fa fa-search" aria-hidden="true"></i>
+
+  <input type="text"  class="c-input_text" placeholder="{{placeholder}}" [(ngModel)]="searchText"   
+    (ngModelChange)="onChange()"/>
+  <i class="fa fa-times" aria-hidden="true" *ngIf="searchText"
+    (click)="clearSearchText()"></i>
+</div>

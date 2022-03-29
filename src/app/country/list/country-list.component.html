@@ -1,29 +1,9 @@
 <div class="c-presentation">
   <div class="c-container">
     <div class="c-control_bar">
-      <div class="c-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input type="text" class="c-input_text" placeholder="Search for a country..." [(ngModel)]="filters.searchText"
-          (change)="filterCountries()">
-        <i class="fa fa-times" aria-hidden="true" *ngIf="filters.searchText"
-          (click)="filters.searchText = ''; filterCountries();"></i>
-      </div>
-      <div class="c-filter_by">
-        <!-- <span class="c-label">Filter by</span> -->
-        <div class="c-select_container">
-          <div class="c-select_label" (click)="toggleShowSelectRegion()">{{filters.searchRegion || 'Filter by Region'}}
-            <span class="fa fa-chevron-down" *ngIf="!filters.searchRegion"></span><span class="fa fa-times"
-              *ngIf="filters.searchRegion" (click)="filters.searchRegion = ''; filterCountries();"></span>
-          </div>
-          <div class="c-select_options_container" *ngIf="isShowSelectRegion">
-            <div class="c-select_options">
-              <div class="c-select_option" (click)="selectRegion('')">Show all</div>
-              <div class="c-select_option" *ngFor="let region of regions" (click)="selectRegion(region)">{{region}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-search-text [placeholder]="'Search for a country...'" (onSearchTextChanged)="onSearchTextChanged($event)" [searchText]="filters.searchText">
+      </app-search-text>
+      <app-filter-by [placeholder]="'Filter by Region'" (onFilterByChanged)="onFilterByChanged($event)" [filter]="filters.searchRegion" [options]="regions"></app-filter-by>
     </div>
     <div class="c-list">
       <a href="/country/{{country.name}}" *ngFor="let country of filteredCountries" class="c-list-card c-card-country">

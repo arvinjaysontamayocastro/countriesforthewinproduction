@@ -2,17 +2,7 @@
   <div class="c-container">
     <div class="c-50">
       <div class="c-presentation-paper">
-        <div class="c-flag-art-container">
-          <div class="c-flag-art">
-            <a href="/country/{{country.name}}" (mouseenter) ="mouseEnter(country)" (mouseleave) ="mouseLeave(country)" class="c-flag" *ngFor="let country of countries" title="{{country.name}}">
-              <div class="c-flag-spacer">
-                <img src="{{country.flags.png}}">
-              </div>
-            </a>
-          </div>
-        </div>
-        <h1 class="c-presentation_title">learn more about<br/>{{hoveredCountry|| 'countries'}}!</h1>
-        <a class="c-link" routerLink="/countries">Get Started Now</a>
+        <app-country-art></app-country-art>
       </div>
     </div>
     <div class="c-50">

@@ -13,15 +13,25 @@ export class CountryListComponent implements OnInit {
   countries: Country[];
   regions: string[];
   filteredCountries: Country[];
-  isShowSelectRegion = false;
 
-  private countriesSub: Subscription;
+  public countriesSub: Subscription;
 
   filters = {
     searchText: "",
     searchRegion: ""
   };
   constructor(public countryService: CountryService, private helperService: HelperService) { }
+
+  onSearchTextChanged(value: string) {
+    this.filters.searchText = value;
+    this.filterCountries();
+  }
+
+  onFilterByChanged(value: string) {
+    this.filters.searchRegion = value;
+    this.filterCountries();
+  }
+
   ngOnInit() {
     var searchTextFromCache = sessionStorage.getItem("searchText");
     var searchRegionFromCache = sessionStorage.getItem("searchRegion");
@@ -72,12 +82,9 @@ export class CountryListComponent implements OnInit {
 
     this.filteredCountries = filteredCountries;
   }
-  toggleShowSelectRegion() {
-    this.isShowSelectRegion = this.isShowSelectRegion ? false : true;
-  }
   selectRegion(region) {
     this.filters.searchRegion = region;
     this.filterCountries();
-    this.isShowSelectRegion = false;
+    // this.isShowSelectRegion = false;
   }
 }

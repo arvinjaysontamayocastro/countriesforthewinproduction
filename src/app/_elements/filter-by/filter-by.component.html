@@ -1,0 +1,15 @@
+<div class="c-filter_by">
+  <div class="c-select_container">
+    <div class="c-select_label"><span (click)="toggleShowSelect()">{{filter || placeholder}}</span>
+      <span class="fa fa-chevron-down" *ngIf="!filter"(click)="toggleShowSelect()"></span><span class="fa fa-times"
+        *ngIf="filter" (click)="select('')"></span>
+    </div>
+    <div class="c-select_options_container" *ngIf="isShowSelect">
+      <div class="c-select_options">
+        <div class="c-select_option" (click)="select('')">Show all</div>
+        <div class="c-select_option" *ngFor="let option of options" (click)="select(option)">{{option}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
