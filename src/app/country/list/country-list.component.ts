@@ -46,18 +46,12 @@ export class CountryListComponent implements OnInit {
     this.countries = this.countryService.getCountries();
     this.regions = this.countryService.getRegions();
     this.filterCountries();
-    console.log("this.countries");
-    console.log(this.countries);
 
     this.countriesSub = this.countryService
       .getCountryUpdateListener()
       .subscribe((countryData: { countries: Country[]; regions: string[] }) => {
         this.countries = countryData.countries;
         this.regions = countryData.regions;
-        console.log("this.countries");
-        console.log(this.countries);
-        console.log("this.regions");
-        console.log(this.regions);
         this.filterCountries();
       });
   }
@@ -85,6 +79,5 @@ export class CountryListComponent implements OnInit {
   selectRegion(region) {
     this.filters.searchRegion = region;
     this.filterCountries();
-    // this.isShowSelectRegion = false;
   }
 }
